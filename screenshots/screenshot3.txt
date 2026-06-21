@@ -1,0 +1,23 @@
+╔══════════════════════════════════════════════════════════════════╗
+║  portman — Help & Usage                                          ║
+║  $ portman --help                                                ║
+╚══════════════════════════════════════════════════════════════════╝
+
+$ portman --help
+usage: portman [-h] {list,find,kill,free} ...
+
+A zero-dependency CLI that finds and kills processes on localhost ports.
+
+positional arguments:
+  {list,find,kill,free}  Command to run
+    list                  List all listening ports
+    find PORT             Find what's using a port
+    kill PORT             Kill process on a port
+    free PORT             Check if a port is free
+
+options:
+  -h, --help            show this help message and exit
+
+$ portman
+usage: portman [-h] {list,find,kill,free} ...
+portman: error: the following arguments are required: command

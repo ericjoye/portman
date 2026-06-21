@@ -1,0 +1,16 @@
+╔══════════════════════════════════════════════════════════════════╗
+║  portman — Free Port Check                                       ║
+║  $ portman free 3000                                             ║
+╚══════════════════════════════════════════════════════════════════╝
+
+$ portman free 3000
+✓ Port 3000 is available
+
+$ portman free 8080
+✓ Port 8080 is available
+
+$ portman free 22
+Port 22 is in use
+
+$ portman free 5432
+Port 5432 is in use

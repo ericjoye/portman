@@ -1,0 +1,32 @@
+╔══════════════════════════════════════════════════════════════════╗
+║  portman — List & Find Ports                                     ║
+║  $ portman list                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+$ portman list
+Listening ports:
+
+PORT       PID        PROCESS                   PROTOCOL
+--------------------------------------------------------
+22         —          unknown                   tcp
+53         —          unknown                   tcp
+5432       —          unknown                   tcp
+6379       —          unknown                   tcp
+57041      —          unknown                   tcp
+
+Total: 5 listening port(s)
+
+$ portman find 8000
+Port 8000 is free
+
+$ portman find 5432
+Port 5432
+  PID:      unknown
+  Process:  unknown
+  Protocol: tcp
+
+$ portman find 22
+Port 22
+  PID:      unknown
+  Process:  unknown
+  Protocol: tcp
