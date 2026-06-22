@@ -13,7 +13,7 @@ A zero-dependency Python CLI that finds and kills processes on localhost ports. 
 
 ## CTA
 ```bash
-pip install portman
+pip install shipstack-portman
 ```
 Then run `portman list` to see what's running on your machine right now.
 

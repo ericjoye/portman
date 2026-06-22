@@ -1,7 +1,7 @@
 # Portman — PyPI Store Listing
 
 ## Package Name
-`portman`
+`shipstack-portman` (install: `pip install shipstack-portman`, run: `portman`)
 
 ## Short Description (max 512 chars)
 A zero-dependency CLI that finds and kills processes on localhost ports. No more lsof → copy PID → kill -9. Just `portman kill 3000`.
