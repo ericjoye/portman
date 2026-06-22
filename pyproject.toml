@@ -35,4 +35,5 @@ Homepage = "https://github.com/ericjoye/portman"
 Issues = "https://github.com/ericjoye/portman/issues"
 
 [tool.hatch.build.targets.wheel]
-packages = ["portman"]
+py-modules = ["portman"]
+include = ["portman.py"]

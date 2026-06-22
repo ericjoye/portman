@@ -556,6 +556,14 @@ def cmd_config(args):
         print(f"{Colors.GREEN}Reset config to defaults{Colors.RESET}")
 
 
+def validate_port(value):
+    """Validate port is in valid range 1-65535."""
+    port = int(value)
+    if port < 1 or port > 65535:
+        raise argparse.ArgumentTypeError(f"port must be between 1 and 65535, got {port}")
+    return port
+
+
 def main():
     parser = argparse.ArgumentParser(
         prog="portman",
@@ -582,22 +590,22 @@ def main():
 
     # list
     list_parser = subparsers.add_parser("list", help="List all listening ports")
-    list_parser.add_argument("port", type=int, nargs="?", help="Filter by specific port")
+    list_parser.add_argument("port", type=validate_port, nargs="?", help="Filter by specific port")
 
     # find
     find_parser = subparsers.add_parser("find", help="Find what's using a port")
-    find_parser.add_argument("port", type=int, help="Port to find")
+    find_parser.add_argument("port", type=validate_port, help="Port to find")
 
     # kill
     kill_parser = subparsers.add_parser("kill", help="Kill process on a port")
-    kill_parser.add_argument("port", type=int, nargs="?", help="Port to kill")
+    kill_parser.add_argument("port", type=validate_port, nargs="?", help="Port to kill")
     kill_parser.add_argument("--all", action="store_true", help="Kill all dev server ports")
     kill_parser.add_argument("--force", action="store_true", help="Force kill (SIGKILL)")
     kill_parser.add_argument("--yes", "-y", action="store_true", help="Skip confirmation")
 
     # free
     free_parser = subparsers.add_parser("free", help="Check if a port is available")
-    free_parser.add_argument("port", type=int, help="Port to check")
+    free_parser.add_argument("port", type=validate_port, help="Port to check")
 
     # config
     config_parser = subparsers.add_parser("config", help="Manage configuration")
@@ -606,9 +614,9 @@ def main():
     config_sub.add_parser("init", help="Create default config file")
     config_sub.add_parser("reset", help="Reset to defaults")
     add_port = config_sub.add_parser("add-port", help="Add a dev port")
-    add_port.add_argument("port", type=int, help="Port to add")
+    add_port.add_argument("port", type=validate_port, help="Port to add")
     remove_port = config_sub.add_parser("remove-port", help="Remove a dev port")
-    remove_port.add_argument("port", type=int, help="Port to remove")
+    remove_port.add_argument("port", type=validate_port, help="Port to remove")
 
     args = parser.parse_args()
 
